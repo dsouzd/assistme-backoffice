@@ -1,0 +1,22 @@
+
+.login-background {
+    background: white;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  /* Hover Effect for Submit Button */
+  .btn-primary:hover {
+    background-color: #890037;
+    border-color: #890037;
+  }
+  
+  /* Optional: Smooth Transition for Hover Effects */
+  .btn-primary, .form-control {
+    transition: all 0.3s ease;
+  }
+  

@@ -1,7 +1,8 @@
 // src/components/Layout/Navbar.js
 import React from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import msg_logo from '../../assets/msg_logo.svg'; 
 
 const NavigationBar = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -12,9 +13,19 @@ const NavigationBar = ({ user, setUser }) => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="primary" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand>BackOffice App</Navbar.Brand>
+        <Navbar.Brand href="/dashboard" className="d-flex align-items-center">
+          <Image
+            src={msg_logo}
+            alt="Logo"
+            width="100"
+            height="40"
+            className="d-inline-block align-top me-2"
+            rounded
+          />
+          AssistMe BackOffice
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/api';
-import { Form, Button, Container, Alert, Spinner } from 'react-bootstrap';
+import { Form, Button, Container, Alert, Spinner, Card } from 'react-bootstrap';
 
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState('');
@@ -29,37 +29,48 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <Container className="mt-5" style={{ maxWidth: '400px' }}>
-      <h2 className="mb-4">Login</h2>
-      {error && <Alert variant="danger">{error}</Alert>}
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formUsername" className="mb-3">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </Form.Group>
+    <div className="login-background">
+      <Container className="d-flex align-items-center justify-content-center min-vh-100">
+        <Card className="p-4 shadow" style={{ width: '100%', maxWidth: '400px', borderRadius: '15px', backgroundColor: '#ffffffcc' }}>
+          <Card.Body>
+            {/* Logo */}
+            <div className="text-center mb-4">
+            </div>
+            <h2 className="mb-4 text-center" style={{ color: '#a01441' }}>Login</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formUsername" className="mb-3">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  className="shadow-sm"
+                />
+              </Form.Group>
 
-        <Form.Group controlId="formPassword" className="mb-4">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </Form.Group>
+              <Form.Group controlId="formPassword" className="mb-4">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="shadow-sm"
+                />
+              </Form.Group>
 
-        <Button variant="primary" type="submit" disabled={loading} className="w-100">
-          {loading ? <Spinner animation="border" size="sm" /> : 'Login'}
-        </Button>
-      </Form>
-    </Container>
+              <Button variant="primary" type="submit" disabled={loading} className="w-100" style={{ backgroundColor: '#a01441', borderColor: '#a01441' }}>
+                {loading ? <Spinner animation="border" size="sm" /> : 'Login'}
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+      </Container>
+    </div>
   );
 };
 
