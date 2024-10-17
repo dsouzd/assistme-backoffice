@@ -2,7 +2,7 @@
 import React from 'react';
 import { Navbar, Nav, Container, Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import msg_logo from '../../assets/msg_logo.svg'; 
+import msg_logo from '../../assets/new_msg_logo.svg'; 
 
 const NavigationBar = ({ user, setUser }) => {
   const navigate = useNavigate();
